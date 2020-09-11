@@ -47,5 +47,11 @@ img{
     height: 300px;
     border: 1px solid black ;
     margin: 10px;
-
+}
+form{
+    width: 600px;
+    border: 1px solid black;
+    margin: 10px auto;
+    padding: 10px;
+    border-radius: 20px;
 }

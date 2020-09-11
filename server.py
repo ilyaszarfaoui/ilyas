@@ -1,4 +1,4 @@
-from flask import Flask ,render_template
+from flask import Flask ,render_template,request
 import datetime
 
 app=Flask(__name__)
@@ -21,7 +21,7 @@ products=[
     }   
 ]
 
-
+messages = []
 @app.route("/")
 def home():
 	return render_template("home.html", today=datetime.datetime.now().date(), prods=products, titre="Home")
@@ -29,9 +29,17 @@ def home():
 def about():
     return render_template("about.html", today=datetime.datetime.now().date(), titre="About")
 
-@app.route("/contact")
+@app.route("/contact",methods=['GET','POST'])
 def contact():
-    return render_template("contact.html", today=datetime.datetime.now().date(), titre="Contact")
+    valid=False
+    if request.method=="POST":
+        nom=request.form.get("nom")
+        mail=request.form.get("mail")
+        message=request.form.get("message")
+        msg={'nom':nom, 'mail':mail, 'message':message}
+        messages.append(msg)
+        valid=True
+    return render_template("contact.html", valid=valid, messages=messages)
 
 if __name__=="__main__":
     	app.run(debug=True)

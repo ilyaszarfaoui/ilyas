@@ -1,6 +1,25 @@
 {%extends 'base.html' %}
 {% block content %}
-<div>
-    Contact content
+    <div>
+        {% if valid %}
+            {% for msg in messages %}
+                <p>{{msg.nom}}</p>
+                <p>{{msg.email}}</p>
+                <p>{{msg.message}}</p>
+                <hr>
+                <br>
+            {% endfor %}
+        {% else %}
+            <form action="/contact">
+                <h1>Contact us</h1>
+                <label for="nom">Nom:</label><br>
+                <input type="text" id="nom" name="nom"><br>
+                <label for="email">Email:</label><br>
+                <input type="email" id="email" name="email"><br>
+                <label for="message">message:</label><br>
+                <textarea type="message" id="message" cols="80" rows="8"></textarea><br>
+                <input type="submit" value="send">
+            </form>
+        {% endif %}
 </div>
 {% endblock content %}
