@@ -3,8 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% if titre %}
+    <title>{{ titre  }}</title>
+    {% endif %}
     <link rel="stylesheet" href="/static/css/style.css"/>
-    <title>My store</title>
 </head>
 <body>
     <header>
@@ -17,10 +19,11 @@
         </ul>
     </header>
     {% block content%}
+
     {% endblock content%}
-    <footer>
-        <p class="footerText"> Created by me </p>
-    </footer>
     
+    <footer class="footerText">
+        <p> Created by me |  today : {{ today }}</p>
+    </footer>
 </body>
 </html>
