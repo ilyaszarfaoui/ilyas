@@ -1,0 +1,35 @@
+body{
+    margin: 0px;
+}
+.headerImage{
+    background-image: url("/static/images/image2.jpeg");
+    height: 250px;
+    background-size: cover;
+    margin: 0px;
+}
+ul{
+    list-style-type: none;
+    background-color: black;
+    overflow: hidden;
+}
+footer{
+    background-color: black;
+    position: fixed;
+    bottom: 0px;
+    width: 100vw;
+}
+li{
+    float: left;
+}
+li a{
+    display: block;
+    padding: 16px;
+    color: white;
+}
+li a:hover{
+    background-color: gray;
+}
+.footerText{
+    color: white;
+    text-align: center;
+}
